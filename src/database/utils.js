@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 const saveToDB = (DB) => {
-    fs.writeFileSync("./src/database/utils.js", JSON.stringify(DB, null, 2), {
+    fs.writeFileSync("./src/database/db.json", JSON.stringify(DB, null, 2), {
         encoding: 'utf8',
     });
 };

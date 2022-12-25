@@ -4,7 +4,7 @@
 const workoutService = require("../services/workoutService");
 
 // express validator
-const {body, validationResult} = require("express-validator");
+const {check, validationResult} = require("express-validator");
 // get all workouts
 const getAllWorkouts = (req, res) =>{
     const allWorkouts = workoutService.getAllWorkouts();
@@ -25,6 +25,7 @@ const getOneWorkout = (req, res) =>{
 
 // create a new workout
 const createNewWorkout = (req, res) =>{
+    
     const errors = validationResult(req);
     if (!errors.isEmpty()){
         return res.status(400).json({errors: errors.array()});

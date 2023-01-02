@@ -7,7 +7,7 @@ import {omit} from 'lodash';
 export async function createUserHandler(req: Request<{}, {}, createUserInput["body"]>, res: Response){
     try{
         const user = await createUser(req.body);  // call user service
-        return res.send(omit(user.toJSON(), 'password'));
+        return res.send(user);
     }
     catch(err:any){
         logger.error(err);
